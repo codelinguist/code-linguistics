@@ -47,3 +47,4 @@ jobs:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
         slot-name: ${{ github.event.inputs.environment || 'production' }}
         package: ./dist
+        startup-command: 'npx serve -s . -l 8080'
