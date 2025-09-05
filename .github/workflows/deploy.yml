@@ -33,4 +33,7 @@ jobs:
         slot-name: 'production'
         publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: ./dist
-        startup-command: 'echo "Static React App Deployed"'
+        app-settings: |
+          -WEBSITE_RUN_FROM_PACKAGE=1
+          -WEBSITE_WEBDEPLOY_USE_SCM=true
+          -SCM_DO_BUILD_DURING_DEPLOYMENT=false
