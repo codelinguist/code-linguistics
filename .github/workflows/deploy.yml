@@ -4,7 +4,7 @@ on:
   push:
     branches: [ main ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, staging ]
   workflow_dispatch:
     inputs:
       environment:
@@ -45,6 +45,5 @@ jobs:
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-        slot-name: ${{ github.event.inputs.environment || 'production' }}
+        slot-name: ${{ github.event.inputs.environment || (github.ref == 'refs/heads/staging' && 'staging') || 'production' }}
         package: ./dist
-        startup-command: 'npx serve -s . -l 8080'
