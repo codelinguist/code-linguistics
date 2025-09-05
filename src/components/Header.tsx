@@ -5,7 +5,7 @@ const Header = () => {
     <header className="fixed top-0 w-full bg-background/95 backdrop-blur-md z-50">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <div className="text-xl font-bold text-primary">
-          SA Portfolio
+          Code Linguistics
         </div>
         <nav className="hidden md:flex items-center space-x-8">
           <a href="#about" className="text-muted-foreground hover:text-primary transition-smooth">
